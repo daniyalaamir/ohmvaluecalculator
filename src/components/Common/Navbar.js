@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import _ from "lodash";
 
 const Navbar = () => {
   const { currentUser, logout } = useAuth();
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const history = useHistory();
   
   const logoutHandler = async () => {
-    setError('');
     try {
       await logout();
-      navigate('/auth')
-    } catch {
-      setError('Failed to log out')
+      history.push('/auth')
+    } catch(err) {
+      console.error('Failed to log out')
     }
   }
 
@@ -27,7 +25,6 @@ const Navbar = () => {
       <nav>
         <ul>
           <li>
-            
             {_.isEmpty(currentUser) ? (
               <Link to='/auth'>Sign In</Link>
             ) : (

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -8,7 +8,7 @@ const AuthForm = () => {
   const passwordInputRef = useRef();
   const { signup, login } = useAuth();
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
@@ -22,7 +22,7 @@ const AuthForm = () => {
       try {
         setError('');
         await login(email, password);
-        navigate('/')
+        history.push('/')
       } catch(error) {
         setError('Failed to log in');
       }
