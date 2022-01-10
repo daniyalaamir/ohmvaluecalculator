@@ -22,7 +22,7 @@ const AuthForm = () => {
       try {
         setError('');
         await login(email, password);
-        history.push('/')
+        history.push('/dashboard')
       } catch(error) {
         setError('Failed to log in');
       }

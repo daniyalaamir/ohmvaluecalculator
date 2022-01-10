@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <header className="header">
       <Link to='/'>
-        <div className="logo">OhmValueCalculator</div>
+        <div className="logo">Ohm Calculator</div>
       </Link>
       <nav>
         <ul>
