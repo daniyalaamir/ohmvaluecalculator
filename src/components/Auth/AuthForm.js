@@ -1,23 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
+  const { signup, login } = useAuth();
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
 
+  async function submitHandler(e) {
+    e.preventDefault();
+    const email = emailInputRef.current.value;
+    const password = passwordInputRef.current.value;
+    if(isLogin) {
+      try {
+        setError('');
+        await login(email, password);
+        navigate('/')
+      } catch(error) {
+        setError('Failed to log in');
+      }
+    } else {
+      try {
+        setError('');
+        await signup(email, password);
+        setIsLogin(true);
+      } catch(error) {
+        setError('Failed to create an account');    
+      }
+    }
+  }
+
   return (
     <section className="auth">
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-      <form>
+      {error && error}
+      <form onSubmit={submitHandler}>
         <div className="control">
           <label htmlFor='email'>Your Email</label>
-          <input type='email' id='email' required />
+          <input type='email' id='email' ref={emailInputRef} required />
         </div>
         <div className="control">
           <label htmlFor='password'>Your Password</label>
-          <input type='password' id='password' required />
+          <input type='password' id='password' ref={passwordInputRef} required />
         </div>
         <div className="actions">
           <button>{isLogin ? 'Login' : 'Create Account'}</button>
