@@ -3,10 +3,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } f
 import { auth } from "../firebase";
 
 const AuthContext = React.createContext();
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
+export const useAuth = () => useContext(AuthContext);
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
@@ -32,7 +29,7 @@ export function AuthProvider({ children }) {
     return signOut(auth);
   }
 
-  const globalState = {
+  const value = {
     currentUser,
     signup,
     login,
@@ -40,7 +37,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={globalState}>
+    <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
   )

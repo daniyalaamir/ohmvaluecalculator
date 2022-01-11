@@ -1,0 +1,15 @@
+export default {
+  pink: "#E68AA9",
+  silver: "#E5E5E5",
+  gold: "#EDBF3C",
+  black: "#0D0D0D",
+  brown: "#95522E",
+  red: "#C60012",
+  orange: "#FE7407",
+  yellow: "#FFF880",
+  green: "#62A852",
+  blue: "#0070FF",
+  violet: "#DAB4E5",
+  gray: "#96948F",
+  white: "#FFF",
+};

@@ -1,0 +1,15 @@
+export default {
+  pink: { value: 0.001, text: "Pink 0.001Ω" },
+  silver: { value: 0.01, text: "Silver 0.01Ω" },
+  gold: { value: 0.1, text: "Gold 0.1Ω" },
+  black: { value: 1, text: "Black 1Ω" },
+  brown: { value: 10, text: "Brown 10Ω" },
+  red: { value: 100, text: "Red 100Ω" },
+  orange: { value: 1000, text: "Orange 1KΩ" },
+  yellow: { value: 10000, text: "Yellow 10KΩ" },
+  green: { value: 100000, text: "Green 100KΩ" },
+  blue: { value: 1000000, text: "Blue 1MΩ" },
+  violet: { value: 10000000, text: "Violet 10MΩ" },
+  gray: { value: 100000000, text: "Gray 100MΩ" },
+  white: { value: 1000000000, text: "White 1GΩ" },
+};

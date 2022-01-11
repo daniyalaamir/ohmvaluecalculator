@@ -91,7 +91,7 @@ h6 {
 
 .header button:hover {
   background-color: #04285A;
-  color: #0275d8;
+  color: #fff;
 }
 
 .auth {
@@ -164,4 +164,51 @@ h6 {
 .actions .toggle:hover {
   background-color: transparent;
   color: #04285A;
+}
+
+.dashboard {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+.dashboard_container {
+  max-width: 800px;
+  margin: 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.select_container {
+  display: flex;
+  flex-direction: column;
+}
+.select_container label {
+  font-size: small;
+  font-weight: 600;
+}
+
+.resistor {
+  width: calc(50vw / 2);
+  height: calc(50vh / 2);
+  min-height: 300px;
+  min-width: 300px;
+}
+
+.display_result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  margin: 16px 0;
+}
+.display_result .label {
+  font-weight: 600;
+}
+
+.display_result .value {
+  margin: 0 16px;
+  font-weight: 700;
+  color: hsl(37, 65%, 50%);
 }
