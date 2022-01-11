@@ -7,6 +7,7 @@
 body {
   font-family: 'Open Sans', 'Lato', sans-serif;
   margin: 0;
+  overflow: hidden;
 }
 
 h1,
@@ -35,6 +36,10 @@ h6 {
   font-size: 18px;
   font-weight: normal;
   padding: 0 3%;
+}
+
+.bannercontent h1 {
+  color: #fff;
 }
 
 .header {

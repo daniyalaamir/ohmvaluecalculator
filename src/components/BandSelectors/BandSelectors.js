@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from 'antd';
 import { multiplier, tolerance, significantDigits } from "../../utils/maps/maps";
-import SelectField from "../Select/SelectField";
+import SelectField from "../Common/SelectField";
 
 function BandSelectors({ onSelectionChange }) {
 
