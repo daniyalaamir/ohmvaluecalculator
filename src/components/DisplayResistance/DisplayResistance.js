@@ -9,7 +9,7 @@ function DisplayResistance() {
   useEffect(() => {
     const resistance = calculateOhmValue(first?.value, second?.value, multiplier?.value);
     const displayValue = resistance >= 0 ? `${getOhmString(resistance)} ±${tolerance?.value ?? 0}%` : "";
-    if (first?.value || second?.value) {
+    if(first?.value >= 0 || second?.value >= 0) {
       setResistanceValue(displayValue);
     }
   }, [first, second, multiplier, tolerance]);
